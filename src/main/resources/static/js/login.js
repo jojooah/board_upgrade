@@ -36,11 +36,24 @@ $login = {
     },
 
     callback: function (response) {
+
         console.log(response);
+        var rtnCd=JSON.parse(response).rtnCd;
+        if(rtnCd==0){
+            window.location.href = "/home";
+        }
+        else{
+            var msg=JSON.parse(response).rtnMsg;
+            alert(msg);
+
+        }
+        console.log(rtnCd);
     },
 
     errCallback: function (response) {
-        console.log(response);
+        console.log(response);//에러화면 띄우기
+        alert("잠시 후 다시 시도해 주세요");
+
     }
 
 

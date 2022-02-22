@@ -15,7 +15,7 @@ public enum ResultCode {
     FAIL_TO_REGISTER_BOARD(200, "글 올리는것을 실패했습니다."),
 
     //글 올리기 관련 오류 300번대
-    FAIL_TO_REGISET_COMMENT(300, "댓글다는것을 실패했ㅅ브니다."),
+    FAIL_TO_REGISET_COMMENT(300, "댓글다는것을 실패했습니다."),
 
 
     //기타 에러
