@@ -9,6 +9,8 @@ public enum ResultCode {
     NOT_ALLOW_USER(100, "허가되지 않은 유저입니다."),
     UNKNOWN_USER(101, "존재하지 않는 유저입니다."),
     PASSWORD_NOT_CORRECT(102, "비밀번호가 일치하지 않습니다."),
+    USER_ALREADY_EXISTS(103,"이미 가입된 회원입니다."),
+    NAME_ALREADY_EXISTS(104,"이미 존재하는 닉네임입니다."),
 
 
     //글 관련 오류 200번대
@@ -42,9 +44,7 @@ public enum ResultCode {
         return new Result<T>(resultObject, this);
     }
 
-    public <T> Result<T> result() {
-        return new Result<T>(null, this);
-    }
+    public <T> Result<T> result() { return new Result<T>(null, this); }
 
     @Override
     public String toString() {
