@@ -5,7 +5,6 @@ import com.example.board_upgrade.constant.Role;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +13,6 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-@ToString
 @Table(name = "member")
 public class Member implements Serializable {
     @Id
