@@ -17,9 +17,6 @@ public class BoardPageController {
             category = "BOOK";
         }
         model.addAttribute("category", category);
-
-
-
         return "board/boardList";
     }
 }

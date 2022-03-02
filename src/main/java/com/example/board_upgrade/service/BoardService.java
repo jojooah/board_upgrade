@@ -51,9 +51,9 @@ public class BoardService {
         Page<Board> boardPage = boardRepository.findBoardByCategoryOrderByIdDesc(boardListDTO.getCategory(), pageable);
         
         Map<String, Object> map = new HashMap<>();
+        map.put("total", boardPage.getTotalElements());
         map.put("totalPages", boardPage.getTotalPages());
-        List<Board> boardList = boardPage.getContent();
-        map.put("contents", boardList);
+        map.put("contents", boardPage.getContent());
         return ResultCode.Success.result(map);
     }
 }

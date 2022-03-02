@@ -20,7 +20,16 @@ $ajax = {
     },
 
     get: function (url, param, callback, errCallback) {
-        $ajax.ajax(url, param, 'GET', callback, errCallback);
+        for (key in param) {
+            var value = param[key];
+            if (url.includes('?')) {
+                url += '&';
+            } else {
+                url += '?';
+            }
+            url += key + '=' + value;
+        }
+        $ajax.ajax(url, {}, 'GET', callback, errCallback);
     },
 
     post: function (url, param, callback, errCallback) {
