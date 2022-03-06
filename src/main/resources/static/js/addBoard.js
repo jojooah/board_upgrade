@@ -1,9 +1,11 @@
 $addBoard = {
+    category:document.getElementById('category').value,
 
     addBoard: function () {
+
         var title = document.getElementById('title').value;
         var content = document.getElementById('content').value;
-        var category='COMMU';
+
         if (!$addBoard.validate(title, content)) {
             return;
         }
@@ -12,7 +14,7 @@ $addBoard = {
         param = {
             title: title,
             content: content,
-            category:category
+            category:$addBoard.category
         }
         $ajax.post(url, param, $addBoard.callback, $addBoard.errCallback);
 
@@ -38,9 +40,7 @@ $addBoard = {
         var rtnCd = JSON.parse(response).rtnCd;
 
         if (rtnCd == 0) {
-            var message = '글올리기 성공';
-           //location.href = "/login?message=" + message;
-            alert(message);
+            location.href = "/boardList?category=" +$addBoard.category;
 
         } else {
             var msg = JSON.parse(response).rtnMsg;

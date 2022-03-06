@@ -25,17 +25,17 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" th:href="@{/}"
-                       th:classappend="${menu}=='home'?'active'">츄라이츄라이</a>
+                    <a class="nav-link" aria-current="page" th:href="@{/home}"
+                       th:classappend="${menu}=='home'?'active'">츄라이츄라이!</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" th:onclick="|location.href='@{/board/community}'|"
-                       th:classappend="${menu}=='commu'?' active'">자유게시판</a>
+                    <a class="nav-link" th:onclick="|location.href='@{/boardList(category='COMMU')}'|"
+                       th:classappend="${menu}=='COMMU'?' active'">자유게시판</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:onclick="|location.href='@{/board/book}'|"
-                       th:classappend="${menu}=='book'?' active'">독후감게시판</a>
+                    <a class="nav-link" th:onclick="|location.href='@{/boardList(category='BOOK')}'|"
+                       th:classappend="${menu}=='BOOK'?' active'">독후감게시판</a>
                 </li>
                 <li th:if="${session.loginMember} != NULL and (${session.loginMember.level == T(com.example.board_upgrade.constant.Level).level3}
                          or ${session.loginMember.role == T(com.example.board_upgrade.constant.Role).ADMIN})" class="nav-item">
