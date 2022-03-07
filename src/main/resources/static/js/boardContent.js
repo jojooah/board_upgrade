@@ -37,6 +37,9 @@ $boardContent = {
 
     getContentErrCallBack: function () {
         alert("목록을 불러오지 못 했습니다.");
+    },
+    delete:function(){
+
     }
 }
 

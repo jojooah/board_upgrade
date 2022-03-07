@@ -17,10 +17,11 @@
     <div id="like"></div>
 
 
-    <!--<span th:if="(${session.loginMember}!=NULL and ${session.loginMember.role == T(com.board.board.constant.Role).ADMIN})or (${board.member}!=NULL and ${session.loginMember}!=NULL and ${session.loginMember.id==board.member.id})">
--->
-    <a type="button" class="btn btn-warning" onclick="$boardContent.update()">수정</a>
-    <a type="button" class="btn btn-warning" onclick="$boardContent.delete()">삭제</a>
+    <span th:if="(${session.loginMember}!=NULL and
+      ${session.loginMember.role == T(com.example.board_upgrade.constant.Role).ADMIN})or
+      (${board.member}!=NULL and ${session.loginMember}!=NULL and ${session.loginMember.id==board.member.id})">
+        <a type="button" class="btn btn-warning" onclick="$boardContent.update()">수정</a>
+        <a type="button" class="btn btn-warning" onclick="$deleteBoard.deleteBoard()">삭제</a>
     </span>
     <!-- <a type="button" class="btn btn-warning" th:href="@{/board/commu_like(id=${board.id})}" th:text="|좋아요 ${board.like}|">좋아요</a> -->
 
@@ -37,6 +38,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <script type="application/javascript" src="/js/boardContent.js?version='2'"></script>
+<script type="application/javascript" src="/js/deleteBoard.js?version='2'"></script>
 <script type="application/javascript" src="/js/common/ajax.js"></script>
 
 </body>

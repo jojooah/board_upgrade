@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/board")
 public class BoardContentPageController {
@@ -21,6 +23,11 @@ public class BoardContentPageController {
 
         model.addAttribute("id", id);
         model.addAttribute("category", category);
+        Optional<Board> optionalBoard=boardRepository.findById(id);
+        if(optionalBoard.isPresent()){
+            Board board=optionalBoard.get();
+            model.addAttribute("board",board);
+        }
         return "board/boardContent";
     }
 }

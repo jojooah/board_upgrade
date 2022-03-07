@@ -6,7 +6,7 @@ $boardList = {
         var category = $boardList.category;
         var param = {
             pageNum: $boardList.pageNum,
-            count: 3,
+            count: 7,
             category: category
         }
         $ajax.get(url, param, $boardList.getPageCallBack, $boardList.getPageErrCallBack);
@@ -111,10 +111,7 @@ $boardList = {
     },
 
     write: function () {
-
         location.href = "/board/form?category=" + $boardList.category;
-        console.log("write11111111");
-
     }
 
 }

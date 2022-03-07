@@ -66,19 +66,29 @@ public class BoardService {
         } else {
             Board board = optionalBoard.get();
 
-            BoardContentDTO boardContentDTO=new BoardContentDTO();
+            BoardContentDTO boardContentDTO = new BoardContentDTO();
             boardContentDTO.setContent(board.getContent());
             boardContentDTO.setLike(board.getLike());
             boardContentDTO.setTitle(board.getTitle());
 
-            if(board.getMember()==null){
+            if (board.getMember() == null) {
                 boardContentDTO.setName("익명의 사용자");
-            }
-            else{
+            } else {
                 boardContentDTO.setName(board.getMember().getName());
             }
             return ResultCode.Success.result(boardContentDTO);
         }
 
+    }
+
+    public Result<Board> deleteBoard(Long id) {
+        Optional<Board> optionalBoard = boardRepository.findById(id);
+        if (optionalBoard.isPresent()) {
+            Board deleteBoard=optionalBoard.get();
+            boardRepository.delete(deleteBoard);
+            return ResultCode.Success.result();
+        } else {
+            return ResultCode.FAIL_TO_DELETE_BOARD.result();
+        }
     }
 }

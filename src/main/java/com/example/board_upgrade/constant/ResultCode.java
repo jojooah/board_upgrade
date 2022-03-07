@@ -16,6 +16,7 @@ public enum ResultCode {
     //글 관련 오류 200번대
     FAIL_TO_REGISTER_BOARD(200, "글 올리는것을 실패했습니다."),
     FAIL_TO_GET_BOARD(201,"글 가져오기를 실패했습니다."),
+    FAIL_TO_DELETE_BOARD(202,"이미 삭제된 글입니다."),
 
     //글 올리기 관련 오류 300번대
     FAIL_TO_REGISET_COMMENT(300, "댓글다는것을 실패했습니다."),
