@@ -3,6 +3,7 @@ package com.example.board_upgrade.service;
 import com.example.board_upgrade.constant.Category;
 import com.example.board_upgrade.constant.Result;
 import com.example.board_upgrade.constant.ResultCode;
+import com.example.board_upgrade.dto.BoardContentDTO;
 import com.example.board_upgrade.dto.BoardFormDTO;
 import com.example.board_upgrade.dto.BoardListDTO;
 import com.example.board_upgrade.entity.Board;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 
 @Service
@@ -49,11 +51,34 @@ public class BoardService {
     public Result<Map<String, Object>> getBoardPageObject(BoardListDTO boardListDTO) {
         Pageable pageable = PageRequest.of(boardListDTO.getPageNum(), boardListDTO.getCount());
         Page<Board> boardPage = boardRepository.findBoardByCategoryOrderByIdDesc(boardListDTO.getCategory(), pageable);
-        
+
         Map<String, Object> map = new HashMap<>();
         map.put("total", boardPage.getTotalElements()); //총 데이터 개수
         map.put("totalPages", boardPage.getTotalPages());//총 페이지
         map.put("contents", boardPage.getContent());
         return ResultCode.Success.result(map);
+    }
+
+    public Result<BoardContentDTO> getBoard(Long id) {
+        Optional<Board> optionalBoard = boardRepository.findById(id);
+        if (!optionalBoard.isPresent()) {
+            return ResultCode.FAIL_TO_GET_BOARD.result();
+        } else {
+            Board board = optionalBoard.get();
+
+            BoardContentDTO boardContentDTO=new BoardContentDTO();
+            boardContentDTO.setContent(board.getContent());
+            boardContentDTO.setLike(board.getLike());
+            boardContentDTO.setTitle(board.getTitle());
+
+            if(board.getMember()==null){
+                boardContentDTO.setName("익명의 사용자");
+            }
+            else{
+                boardContentDTO.setName(board.getMember().getName());
+            }
+            return ResultCode.Success.result(boardContentDTO);
+        }
+
     }
 }
