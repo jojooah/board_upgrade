@@ -1,5 +1,6 @@
 $boardContent = {
-
+     id : document.getElementById('id').value,
+     category:document.getElementById('category').value,
     getContent: function () {
 
         var id = document.getElementById('id').value;
@@ -38,9 +39,10 @@ $boardContent = {
     getContentErrCallBack: function () {
         alert("목록을 불러오지 못 했습니다.");
     },
-    delete:function(){
-
+    goUpdateBoardPage:function(){
+        location.href = "/board/update?category=" + $boardContent.category +"&id="+$boardContent.id;
     }
+
 }
 
 

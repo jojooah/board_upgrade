@@ -91,4 +91,23 @@ public class BoardService {
             return ResultCode.FAIL_TO_DELETE_BOARD.result();
         }
     }
+
+    public Result<Board> updateBoard(BoardFormDTO boardFormDTO){
+        return updateBoard(boardFormDTO.getTitle(),boardFormDTO.getContent(),boardFormDTO.getId());
+    }
+
+    public Result<Board> updateBoard(String title,String content,Long id){
+        Optional<Board> optionalBoard=boardRepository.findById(id);
+        if(optionalBoard.isPresent()){
+            Board updateBoard=optionalBoard.get();
+
+            updateBoard.setTitle(title);
+            updateBoard.setContent(content);
+            boardRepository.save(updateBoard);
+            return ResultCode.Success.result();
+
+        }else{
+            return ResultCode.FAIL_TO_DELETE_BOARD.result();//이미 삭제된 글입니다.
+        }
+    }
 }

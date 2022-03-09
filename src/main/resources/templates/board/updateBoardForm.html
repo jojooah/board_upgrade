@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html>
+<input type="hidden" id="category" th:value="${category}">
+<input type="hidden" id="id" th:value="${id}">
+<span th:if="${category}=='COMMU'"><head th:replace="fragments/common :: head('자유게시판')"></head></span>
+<span th:if="${category}=='BOOK'"><head th:replace="fragments/common :: head('독서게시판')"></head></span>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" th:replace="fragments/common :: menu(${category})"></nav>
+
+<main class="container">
+
+    <div class="form-floating">
+        <textarea class="form-control" id="title" placeholder="Leave a comment here" th:text="${title}"></textarea>
+        <label for="title">제목</label>
+    </div>
+    </br>
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="content" style="height: 500px" th:text="${content}"></textarea>
+        <label for="content">내용</label>
+    </div>
+
+    <button class="btn btn-warning" onclick="$updateBoard.updateBoard()">수정</button>
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="application/javascript" src="/js/updateBoard.js?version='3'"></script>
+<script type="application/javascript" src="/js/common/ajax.js"></script>
+
+
+</body>
+</html>

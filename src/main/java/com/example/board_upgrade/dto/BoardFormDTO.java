@@ -6,6 +6,7 @@ import lombok.Setter;
 
 @Getter@Setter
 public class BoardFormDTO {
+    Long id;
     String title;
     String content;
     Category category;
