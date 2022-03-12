@@ -21,6 +21,12 @@ public enum ResultCode {
     //글 올리기 관련 오류 300번대
     FAIL_TO_REGISET_COMMENT(300, "댓글다는것을 실패했습니다."),
 
+    //좋아요 관련 오류 400번대
+    //세션이 만료되었을때. 로그인 화면으로 리다이렉트하기.
+    //이미 좋아요한 게시물일때.
+    FAIL_TO_LIKE_NO_SESSION(400,"다시 로그인 해주세요."),
+    ALREADY_LIKE_BOARD(401,"이미 좋아요 한 게시물 입니다."),
+
 
     //기타 에러
     DB_ERROR(9998, "DB 오류입니다."),

@@ -5,6 +5,7 @@ $addBoard = {
 
         var title = document.getElementById('title').value;
         var content = document.getElementById('content').value;
+        var memberId=document.getElementById('memberId').value;
 
         if (!$addBoard.validate(title, content)) {
             return;
@@ -13,6 +14,7 @@ $addBoard = {
         url = '/api/addBoard';
         param = {
             title: title,
+            memberId:memberId,
             content: content,
             category:$addBoard.category
         }
