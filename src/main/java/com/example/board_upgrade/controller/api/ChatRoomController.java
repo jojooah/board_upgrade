@@ -39,4 +39,5 @@ public class ChatRoomController extends AbstractController {
         return return2JSON(result);
     }
 
+
 }

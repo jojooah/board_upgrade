@@ -19,7 +19,6 @@ public class ChatMessage {
     private String message;
     private LocalDateTime updateTime;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
