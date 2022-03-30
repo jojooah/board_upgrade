@@ -27,6 +27,9 @@ public enum ResultCode {
     FAIL_TO_LIKE_NO_SESSION(400,"다시 로그인 해주세요."),
     ALREADY_LIKE_BOARD(401,"이미 좋아요 한 게시물 입니다."),
 
+    //채팅방 관련 오류 500번대
+    CHATROOM_NOT_EXIST(500,"채팅방이 없어요."),
+
 
     //기타 에러
     DB_ERROR(9998, "DB 오류입니다."),
