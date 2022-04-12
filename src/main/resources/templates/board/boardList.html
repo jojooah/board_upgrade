@@ -2,6 +2,7 @@
 
 <html>
 <input type="hidden" id="category" th:value="${category}">
+<input type="hidden" id="memberId" th:value="${memberId}">
 <span th:if="${category}=='COMMU'"><head th:replace="fragments/common :: head('자유게시판')"></head></span>
 <span th:if="${category}=='BOOK'"><head  th:replace="fragments/common :: head('독서게시판')"></head></span>
 
@@ -25,7 +26,7 @@
             </tbody>
         </table>
         <a type="button" class="btn btn-warning" onclick="$boardList.write()">글쓰기</a>
-        <nav aria-label="Page navigation example">
+        <br aria-label="Page navigation example">
             <ul id="pagination" class="pagination justify-content-center">
                 <li class="page-item">
                     <a class="page-link">Previous</a>
@@ -39,6 +40,7 @@
             </ul>
             <button onclick="$chatRoom.createChatRoom()">채팅방 만들기</button>
             <button onclick="$chatRoom.getChatRooms()">채팅방 목록</button>
+        </br><span id="chatRoomId" ></span>
         </nav>
     </span>
 </main>
@@ -51,7 +53,7 @@
         crossorigin="anonymous"></script>
 <script type="application/javascript" src="/js/boardList.js?version='1'"></script>
 <script type="application/javascript" src="/js/common/ajax.js"></script>
-<script type="application/javascript" src="/js/chatRoom.js"></script>
+<script type="application/javascript" src="/js/chatRoom.js?version='16'"></script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

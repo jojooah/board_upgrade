@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script type="application/javascript" src="/js/chatRoom.js"></script>
+    <script type="application/javascript" src="/js/chatRoom.js?version='16'"></script>
     <script type="application/javascript" src="/js/common/ajax.js"></script>
     <meta charset="UTF-8">
     <title>채팅방</title>
 </head>
-<body>
-<span id="chatId" >채팅방</span>
-</body>
+
+    <body>
+        <input type="hidden" id="nowChatRoomId" value="none">
+        <input type="hidden" id="memberId" th:value="${memberId}">
+        <input type="hidden" id="chatRoomId" th:value="${chatRoomId}">
+        <input id="message" onkeydown="if(event.keyCode==13) javascript: $chatRoom.addMessage();">
+        <span id="chat"></span>
+        <span id="content"value="none"></span>
+
+    </body>
+
+    <script>
+       window.onload=function(){
+           var chatRoomId=document.getElementById('chatRoomId').value;
+           function load_messages(){
+               $chatRoom.getChatMessages(chatRoomId);
+
+           }
+              setInterval(load_messages,2000);
+       }
+    </script>
 </html>

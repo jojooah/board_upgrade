@@ -6,6 +6,7 @@ import com.example.board_upgrade.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,8 @@ public class ChatRoomPageController {
 
     @Autowired
     private ChatService chatService;
+
+    @RequestMapping("/chatRooms")
     public String ChatRoomList(Model model){
         Result<List<ChatRoom>> result=chatService.getChatRooms();
 

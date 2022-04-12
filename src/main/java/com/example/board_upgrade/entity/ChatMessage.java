@@ -1,7 +1,6 @@
 package com.example.board_upgrade.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -9,6 +8,9 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ChatMessage {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
