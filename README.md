@@ -1,5 +1,5 @@
 # board_upgrade
-기존의 board 프로젝트를 리팩토링
+기존의 board 프로젝트(https://github.com/jojooah/board)를 리팩토링
 
 [오류처리]
 
